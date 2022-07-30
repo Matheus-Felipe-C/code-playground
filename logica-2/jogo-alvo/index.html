@@ -15,6 +15,8 @@
         pencil.fillStyle = 'lightgrey'
         pencil.fillRect(0,0,600,400)
 
+        let randomXAxis
+        let randomYaxis
         let radius = 10;
         
         function drawCircle(x, y, radius, color) {
@@ -40,13 +42,27 @@
 
         function updateScreen() {
             clearScreen()
-            let randomXAxis = randomTargetPosition(600)
-            let randomYaxis = randomTargetPosition(400)
+            randomXAxis = randomTargetPosition(600)
+            randomYaxis = randomTargetPosition(400)
     
             drawTarget(randomXAxis, randomYaxis)
         }
 
         setInterval(updateScreen, 1000)
+
+        function fire(event) {
+            let x = event.pageX - screen.offsetLeft
+            let y = event.pageY - screen.offsetTop
+
+            if (x > randomXAxis - radius
+                    && x < randomXAxis + radius
+                    && y > randomYaxis - radius
+                    && y < randomYaxis + radius) {
+                        alert('Acertei')
+                    }
+        }
+        
+        screen.onclick = fire
     </script>
 </body>
 </html>
