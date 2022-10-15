@@ -1,2 +1,4 @@
-# alura-logica
-Repositório para guardar os códigos da trilha de lógica da Alura
+# Alura Playground
+Repositório para Aprender novos conceitos na Alura e deixar meu GitHub esverdeado :)
+
+# Aprendendo no momento - CSS Flexbox
