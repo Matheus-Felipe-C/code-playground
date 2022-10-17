@@ -24,3 +24,9 @@
   margin-left: 5%;
   display: flex;
 }
+
+.rodapePrincipal-navMap-list {
+  height: 260px;
+  display: flex;
+  flex-flow: column wrap;
+}
