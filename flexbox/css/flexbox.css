@@ -34,9 +34,19 @@
 .conteudoPrincipal-cursos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .conteudoPrincipal-cursos-link {
   width: 23%;
+  /*margin: 1% - Por algum motivo já tem essa margem no código original*/
+}
+
+/* Retirar a margem a direita dos elementos múltiplos de 4 */
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+  margin-right: 0;
+}
+
+/* Retirar a margem a esquerda dos elementos múltiplos de 4 + 1 */
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+  margin-left: 0;
 }
