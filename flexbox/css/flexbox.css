@@ -50,3 +50,13 @@
 .conteudoPrincipal-cursos-link:nth-child(4n+1) {
   margin-left: 0;
 }
+
+/* Parte mobile */
+
+@media(max-width: 425px) {
+  .cabecalhoPrincipal .container, .cabecalhoPrincipal-nav {
+    flex-direction: column;
+    align-items: initial;
+    text-align: center;
+  }
+}
