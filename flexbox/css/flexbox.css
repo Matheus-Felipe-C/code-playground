@@ -90,4 +90,10 @@
     margin: 0;
     width: 100%;
   }
+
+  /* Mudando a ordem do app no mobile */
+
+  .cabecalhoPrincipal-nav-link-app {
+    order: -1;
+  }
 }
