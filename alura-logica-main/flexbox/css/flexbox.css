@@ -1,0 +1,127 @@
+.cabecalhoPrincipal .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.cabecalhoPrincipal-nav {
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rodapePrincipal-contatoForm-fieldset {
+  margin-left: 5%;
+  display: flex;
+}
+
+.rodapePrincipal-navMap-list {
+  height: 260px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.conteudoPrincipal-cursos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos-link {
+  width: 23%;
+  /*margin: 1% - Por algum motivo já tem essa margem no código original*/
+}
+
+/* Retirar a margem a direita dos elementos múltiplos de 4 */
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+  margin-right: 0;
+}
+
+/* Retirar a margem a esquerda dos elementos múltiplos de 4 + 1 */
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+  margin-left: 0;
+}
+
+.videoSobre .container {
+  display: flex;
+}
+
+.videoSobre-sobre {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.videoSobre-sobre-list {
+  flex-grow: 1;
+}
+
+.videoSobre-video {
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+/* Parte mobile */
+
+@media(max-width: 768px) {
+  
+  .cabecalhoPrincipal .container, .cabecalhoPrincipal-nav {
+    flex-direction: column;
+    align-items: initial;
+    text-align: center;
+  }
+
+  .conteudoPrincipal-cursos {
+    flex-direction: column;
+  }
+
+  .conteudoPrincipal-cursos-link {
+    width: 100%;
+  }
+
+  .rodapePrincipal-navMap-list {
+    height: auto;
+  }
+
+  .rodapePrincipal-patrocinadores .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rodapePrincipal-contatoForm {
+    width: 100%;
+  }
+
+  .rodapePrincipal-contatoForm-fieldset {
+    justify-content: center;
+  }
+
+  .rodapePrincipal-patrocinadores-list {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Mudando a ordem do app no mobile */
+
+  .cabecalhoPrincipal-nav-link-app {
+    order: -1;
+  }
+
+  .videoSobre .container {
+    flex-direction: column;
+  }
+
+  .videoSobre-video {
+    margin: 0 auto;
+  }
+}
