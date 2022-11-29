@@ -12,5 +12,6 @@ public class App {
 
         System.out.println("Conta1 - " + conta1.saldo);
         System.out.println("Conta2 - " + conta2.saldo);
+        System.out.println(conta1.titular.nome);
     }
 }

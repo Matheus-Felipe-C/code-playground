@@ -6,4 +6,6 @@ Repositório para Aprender novos conceitos na Alura e deixar meu GitHub esverdea
 ## O que aprendi no último curso
 
 - Diferenças entre paradigmas procedurais e orientados a objeto
-- 
+- Classes, atributos, métodos e parâmetros
+- O que é uma referência a um objeto
+- Relacionamento entre classes
