@@ -1,17 +1,16 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Conta primeiraConta = new Conta();
-        primeiraConta.saldo = 200;
-        System.out.println(primeiraConta.saldo);
+        Conta conta1 = new Conta();
+        Conta conta2 = new Conta();
 
-        primeiraConta.saldo += 100;
-        System.out.println(primeiraConta.saldo);
+        conta1.depositar(100);
+        conta2.depositar(500);
 
-        Conta segundaConta = primeiraConta;
-        segundaConta.saldo = 50;
+        if (conta2.transferir(3000, conta1)) {
+            System.out.println("Transferência feita com sucesso");
+        } else System.out.println("Você é muito pobre pra isso");
 
-        System.out.println("primeira conta tem " + primeiraConta.saldo);
-        System.out.println("segunda conta tem " + segundaConta.saldo);
-        System.out.println(primeiraConta);
+        System.out.println("Conta1 - " + conta1.saldo);
+        System.out.println("Conta2 - " + conta2.saldo);
     }
 }
