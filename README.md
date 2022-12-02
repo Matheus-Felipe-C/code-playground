@@ -9,3 +9,4 @@ Repositório para Aprender novos conceitos na Alura e deixar meu GitHub esverdea
 - Classes, atributos, métodos e parâmetros
 - O que é uma referência a um objeto
 - Relacionamento entre classes
+- getters e setters

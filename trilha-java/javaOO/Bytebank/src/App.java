@@ -10,8 +10,8 @@ public class App {
             System.out.println("Transferência feita com sucesso");
         } else System.out.println("Você é muito pobre pra isso");
 
-        System.out.println("Conta1 - " + conta1.saldo);
-        System.out.println("Conta2 - " + conta2.saldo);
-        System.out.println(conta1.titular.nome);
+        System.out.println("Conta1 - " + conta1.getSaldo());
+        System.out.println("Conta2 - " + conta2.getSaldo());
+        
     }
 }
