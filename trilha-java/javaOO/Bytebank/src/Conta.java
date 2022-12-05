@@ -4,6 +4,15 @@ public class Conta{
     private int agencia;
     private int numero;
     Cliente titular;
+    private static int total = 0;
+
+    public Conta(int agencia, int numero){
+        Conta.total++;
+        this.agencia = agencia;
+        this.numero = numero;
+        this.saldo = 100; //isso significa que toda conta começa com 100 de saldo.
+        System.out.println("Estou criando uma conta");
+    }
 
     public void depositar(double saldo) {
         this.saldo += + saldo;
@@ -51,5 +60,9 @@ public class Conta{
 
     public Cliente getTitular() {
         return titular;
+    }
+
+    public static int getTotal(){
+        return Conta.total;
     }
 }
