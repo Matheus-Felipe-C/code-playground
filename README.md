@@ -7,3 +7,5 @@ Repositório para Aprender novos conceitos na Alura e deixar meu GitHub esverdea
 
 - Pilha de execução do Java
 - Depuração
+- Exceções
+- Try - catch
