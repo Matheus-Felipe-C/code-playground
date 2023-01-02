@@ -1,14 +1,17 @@
 public class Teste {
-    public static void main(String[] args) throws Exception {
 
-        ContaCorrente cc = new ContaCorrente(111, 111);
-        cc.depositar(100.0);
+    public static void main(String[] args) {
+        Conta conta = new ContaCorrente(123, 321);
 
-        ContaPoupanca cp = new ContaPoupanca(222, 222);
-        cp.depositar(100.0);
+        conta.depositar(200.0);
 
-        cc.transferir(10.0, cp);
-        System.out.println("CC: " + cc.getSaldo());
-        System.out.println("CP: " + cp.getSaldo());
+        try {
+            conta.sacar(210.0);
+        } catch(SaldoInsuficienteException ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+
+        System.out.println(conta.getSaldo());
     }
 }
