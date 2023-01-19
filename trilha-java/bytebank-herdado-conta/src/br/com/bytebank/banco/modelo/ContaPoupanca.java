@@ -11,4 +11,8 @@ public class ContaPoupanca extends Conta {
 		super.saldo += valor;	
 	}
 	
+	@Override
+	public String toString() {
+		return "ContaPoupanca, " + super.toString();
+	}
 }
