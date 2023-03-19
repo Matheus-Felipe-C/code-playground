@@ -1,11 +1,4 @@
-# Alura Playground
-Repositório para Aprender novos conceitos na Alura e deixar meu GitHub esverdeado :)
+# Playground
+Repositório para guardar projetos de faculdade e cursos livres para, assim, deixar meu GitHub esverdeado :)  
 
-# Aprendendo no momento - Java Exceptions
-
-## O que aprendi no último curso
-
-- Pilha de execução do Java
-- Depuração
-- Exceções
-- Try - catch
+Este repositório também será usado para guardar provas e listas resolvidas da minha faculdade
