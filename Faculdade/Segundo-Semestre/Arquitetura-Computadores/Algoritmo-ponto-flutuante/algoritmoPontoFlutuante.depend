@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1678235352 source:/home/matheus/Documentos/projetos-c/algoritmoPontoFlutuante/calculos.c
+	<stdio.h>
+	<string.h>
+
+1678235333 source:/home/matheus/Documentos/projetos-c/algoritmoPontoFlutuante/main.c
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1677805668 /home/matheus/Documentos/projetos-c/algoritmoPontoFlutuante/calculos.h
+

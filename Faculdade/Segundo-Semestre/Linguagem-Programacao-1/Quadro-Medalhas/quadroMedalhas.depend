@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1677449324 source:/home/matheus/Documentos/projetos-c/quadroMedalhas/main.c
+	<stdio.h>
+	<stdlib.h>
+	"relatorio.h"
+
+1674585849 /home/matheus/Documentos/projetos-c/quadroMedalhas/acessTxt.h
+
+1674864631 source:/home/matheus/Documentos/projetos-c/quadroMedalhas/accessTxt.c
+	<stdio.h>
+	<stdlib.h>
+
+1677448226 /home/matheus/Documentos/projetos-c/quadroMedalhas/relatorio.h
+
+1677449440 source:/home/matheus/Documentos/projetos-c/quadroMedalhas/relatorio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
