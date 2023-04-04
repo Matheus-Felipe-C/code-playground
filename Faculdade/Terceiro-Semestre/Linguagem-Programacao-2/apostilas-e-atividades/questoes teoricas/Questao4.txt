@@ -1,0 +1,5 @@
+O código possui os seguintes erros:
+
+- z não pode ser atribuído a y, pois uma variável do tipo double não cabe em uma do tipo int
+- Há um char sem um nome de variável correto. Há apenas uma barra horizontal, que não é um caracter válido para nomes de variáveis
+- No System.out.println, as variáveis não estão sendo concatenadas com a string

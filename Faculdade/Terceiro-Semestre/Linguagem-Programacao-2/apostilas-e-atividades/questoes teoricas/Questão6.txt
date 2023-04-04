@@ -1,0 +1,16 @@
+O código possui as seguintes variáveis:
+
+String nome = "Alexandre", sobrenome = "Franco"
+int idadedopai = 0, idadedamae = 0, ano = 1975, idade
+
+Este segue os seguintes passos:
+
+1 - idade = 2008 - ano, então o valor de ano é 33
+2 - idadedopai += (idade + 28), então o valor de idadedopai é 41
+3 - idadedamae =  idadedopai - 8, então o valor de idadedamae é 33
+
+Portanto, será demonstrado as seguintes mensagens nos prints:
+
+Nome:Alexandre Franco
+Idade da mãe 33
+e idade do pai 41
