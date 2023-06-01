@@ -33,7 +33,7 @@ public class Q7 {
         System.out.println("Digite o tempo gasto na viagem (em horas)\n");
         float tempo = scan.nextFloat();
         System.out.println("DIgite a velocidade média do veículo (em km/h)\n");
-        float velocidade = scan.nextFloat();
+        float velocidade = scan.nextFloat(); 
 
         float distancia = tempo * velocidade;
         float litros = distancia/12;
