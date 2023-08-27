@@ -1,0 +1,15 @@
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\bin\Debug\net7.0\HelloWorld.exe
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\bin\Debug\net7.0\HelloWorld.deps.json
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\bin\Debug\net7.0\HelloWorld.runtimeconfig.json
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\bin\Debug\net7.0\HelloWorld.dll
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\bin\Debug\net7.0\HelloWorld.pdb
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.csproj.AssemblyReference.cache
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.AssemblyInfoInputs.cache
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.AssemblyInfo.cs
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.csproj.CoreCompileInputs.cache
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.dll
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\refint\HelloWorld.dll
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.pdb
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\HelloWorld.genruntimeconfig.cache
+c:\Users\theus\Documents\code-playground\CSharpLearning\HelloWorld\obj\Debug\net7.0\ref\HelloWorld.dll
