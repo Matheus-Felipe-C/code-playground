@@ -1,5 +1,0 @@
-Na questão, existe um código em destaque, o código possui um erro logo na primeira linha.
-
-A classe possui o nome de "ProgramaTeste", enquanto seu arquivo possui o nome "Teste.java"
-
-Classes em java devem possuir o mesmo nome que seu arquivo
