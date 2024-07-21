@@ -1,0 +1,35 @@
+/*
+    Fonte Inter
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 36px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+p img {
+    display: block;
+    width: 200px;
+    height: 180px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ul li {
+    list-style-type: circle;
+    text-decoration: underline;
+}
