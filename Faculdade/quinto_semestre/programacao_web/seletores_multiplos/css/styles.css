@@ -1,0 +1,48 @@
+/* Fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: "Inter", Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+.titulo {
+    text-align: center;
+}
+
+img {
+    display: block;
+    width: 400px;
+    height: 300px;
+    margin: auto;
+}
+
+.listaLinks {
+    text-align: center;
+    margin-top: 30px;
+}
+
+p {
+    text-align: justify;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.servicos h3 {
+    padding-left: 15px;
+}
+
+.servicos p {
+    text-align: justify;
+    padding-left: 20px;
+}
+
+.contatos h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+.contato ul {
+    padding-left: 20px;
+}
