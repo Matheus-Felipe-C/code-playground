@@ -1,0 +1,11 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+main {
+    text-align: center;
+    line-height: 2;
+    border: 1px solid black;
+    color: red;
+}
