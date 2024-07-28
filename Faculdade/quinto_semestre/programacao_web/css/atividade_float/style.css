@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.imagem img {
+    width: 150px;
+    height: auto;
+}
+
+.links {
+    float: left;
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links li {
+    margin-bottom: 10px;
+}
+
+.box-direito {
+    width: 60%;
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+
+}
