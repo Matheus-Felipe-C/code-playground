@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="profile">
+            <header class="section-title-no-line">Jorge Ramon</header>
+            <div class="form-container">
+                <form>
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" value="Jorge">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" value="Ramon">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company:</label>
+                        <input type="text" id="company" value="MiamiCoder">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" value="Mr">
+                    </div>
+                </form>
+                <figure class="picture">
+                    <img src="profile-img.png" alt="Profile Picture">
+                    <figcaption><button type="button">Change Picture</button></figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        
+        <section class="phone-internet">
+            <div class="phone">
+                <header class="section-title">
+                    <span class="line"></span>
+                    <span class="title-text">Phone Numbers</span>
+                    <span class="line"></span>
+                </header>
+                <form>
+                    <div class="form-group">
+                        <label for="home-phone">Home:</label>
+                        <input type="text" id="home-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="business-phone">Business:</label>
+                        <input type="text" id="business-phone" value="555 555-5555">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile-phone">Mobile:</label>
+                        <input type="text" id="mobile-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="fax">Fax:</label>
+                        <input type="text" id="fax">
+                    </div>
+                </form>
+            </div>
+            <div class="internet">
+                <header class="section-title">
+                    <span class="line"></span>
+                    <span class="title-text">Internet</span>
+                    <span class="line"></span>
+                </header>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" value="ramonj@miamicoder.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="web-page">Web page:</label>
+                        <input type="url" id="web-page" value="http://www.miamicoder.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="im">IM:</label>
+                        <input type="text" id="im">
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <section class="addresses">
+            <header class="section-title">
+                <span class="line"></span>
+                <span class="title-text">Addresses</span>
+                <span class="line"></span>
+            </header>
+            <div class="address-forms">
+                <form class="address-form">
+                    <div class="form-group">
+                        <label for="business-address">Business:</label>
+                        <textarea id="business-address">123 Acme Rd #001
+        Miami, FL 33133</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-button">
+                            <input type="radio" name="mailing-address" value="business">
+                            Mailing Address
+                        </label>
+                    </div>
+                </form>
+                <form class="address-form">
+                    <div class="form-group">
+                        <label for="home-address">Home:</label>
+                        <textarea id="home-address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-button">
+                            <input type="radio" name="mailing-address" value="home">
+                            Mailing Address
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </section>        
+
+        <footer class="actions">
+            <button type="submit">Save</button>
+            <button type="button">Cancel</button>
+        </footer>
+    </main>
+</body>
+</html>
