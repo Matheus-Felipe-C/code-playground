@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulário com JavaScript</title>
+</head>
+
+<body>
+	<h1>Formulário de registro</h1>
+	<hr>
+	<form name="regform">
+		<label for="nome">
+			Nome
+			<input type="text" name="nome">
+		</label>
+		<label for="email">
+			Email
+			<input type="email" name="email">
+		</label>
+		<label for="cidade">
+			Cidade
+			<input type="text" name="cidade">
+		</label>
+		<label for="estado">
+			Estado
+			<select name="estado" id="estado">
+				<option value=""></option>
+				<option value="BA">BA</option>
+				<option value="PA">PA</option>
+				<option value="RJ">RJ</option>
+				<option value="SP">SP</option>
+			</select>
+		</label>
+		<br>
+		<br>
+		<label for="mensagem">
+			Mensagem
+			<textarea name="mensagem" id="mensagem"></textarea>
+		</label>
+		<br>
+		<br>
+		<button onclick="valida()">Registrar</button>
+	</form>
+
+	<script src="index.js"></script>
+</body>
+
+</html>
