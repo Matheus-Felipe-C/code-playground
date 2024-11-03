@@ -18,6 +18,12 @@ class Game(ctk.CTkFrame):
         self.add_player(symbol= "👾", name = "Player 1", oxygen= self.oxygen, initial_row = 0, initial_column = 0)
         self.add_player(symbol= "🦄", name= "Player 2", oxygen = self.oxygen, initial_row= 1, initial_column = 1)
 
+        # Instructions label
+        self.instructions_label = ctk.CTkLabel(self, text= "Click to move active player, press 'Tab' to switch players")
+        self.instructions_label.grid(row = rows + 1, column=0, columnspan=columns, pady= 10)
+
+        self.bind("<Tab>", self.switch_active_player)
+
     def create_matrix(self, rows= 15, columns= 15):
         """Creates the map matrix and shows it on the screen"""
         for row in range(rows):
@@ -45,6 +51,14 @@ class Game(ctk.CTkFrame):
         active_player = self.players[self.active_player_index]
         active_player.move_to(row, column)
         print(f"Moving {active_player.name} to ({row}, {column})")
+        
+        self.switch_active_player()
+
+    def switch_active_player(self, event=None):
+        """Switches to the next player in the list"""
+        self.active_player_index = (self.active_player_index + 1) % len(self.players)
+        active_player = self.players[self.active_player_index]
+        print(f"Active player is now {active_player.name}")
 
     def change_frame_color(self, row: int, column: int, color: str) -> None:
         self.frame_matrix[row][column].configure(fg_color= color)
