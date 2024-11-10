@@ -95,11 +95,26 @@ class Game(ctk.CTkFrame):
     def move_active_player(self, row: int, column: int) -> None:
         """Move active player to designated cell"""
         active_player = self.players[self.active_player_index]
-        active_player.move_to(row, column)
+
+        if self.is_occupied(row, column):
+            # Determine the direction and attempt a jump
+            d_row, d_col = row - active_player.row, column - active_player.column
+            new_row, new_column = row + d_row, column + d_col
+
+            # Ensure new jump position is within bounds
+            if 0 <+ new_row < len(self.frame_matrix) and 0 <= new_column < len(self.frame_matrix[0]):
+                # Set new target position to the jump position if unoccupied
+                if not self.is_occupied(new_row, new_column):
+                    row, column = new_row, new_column
         
+        active_player.move_to(row, column)
         print(f"Moving {active_player.name} to ({row}, {column})")
         
         self.switch_active_player()
+    
+    def is_occupied(self, row: int, column: int) -> bool:
+        """Checks if a specific position is occupied by any player."""
+        return any(player.row == row and player.column == column for player in self.players)
 
     def switch_active_player(self, event=None):
         """Switches to the next player in the list"""
