@@ -1,6 +1,7 @@
 import random
 import customtkinter as ctk
 from player import Player
+from Treasure import Treasure
 
 class Game(ctk.CTkFrame):
     def __init__(self, master, rows = 15, columns = 15, **kwargs):
@@ -16,6 +17,10 @@ class Game(ctk.CTkFrame):
         self.oxygen = 15
         self.possible_moves = [] # List to store valid moves
 
+        # Spawn treasure chests
+        self.treasures = [] #List to store multiple treasures
+        self.create_treasures(num_treasures = 5) # Adds treasures randomly in the map
+
         # Add players
         self.add_player(symbol= "👾", name = "Player 1", initial_row = 0, initial_column = 0)
         self.add_player(symbol= "🦄", name= "Player 2", initial_row= 1, initial_column = 1)
@@ -27,6 +32,18 @@ class Game(ctk.CTkFrame):
         self.bind("<Tab>", lambda event: self.switch_active_player(has_moved= False))
 
         self.attempt_move()
+
+    def create_treasures(self, num_treasures: int = 1):
+        """Creates random treasures on the map with a unique symbol."""
+        for _ in range(num_treasures):
+            row, column = random.randint(0, len(self.frame_matrix) - 1), random.randint(0, len(self.frame_matrix[0]) - 1)
+
+            # Ensure treasures won't overlap
+            while any(treasure.row == row and treasure.column == column for treasure in self.treasures):
+                row, column = random.randint(0, len(self.frame_matrix) - 1), random.randint(0, len(self.frame_matrix[0] - 1))
+            
+            treasure = Treasure(self.frame_matrix, "💎", row, column)
+            self.treasures.append(treasure)
 
     def roll_dice(self):
         """Returns a random number from 0 to 3, which will determine how far a player will go"""
@@ -111,14 +128,40 @@ class Game(ctk.CTkFrame):
         print(f"Moving {active_player.name} to ({row}, {column})")
 
         self.consume_oxygen(row, column, active_player)
-        
+        self.check_for_treasure(row, column, active_player)        
         self.switch_active_player(has_moved = True)
     
     def is_occupied(self, row: int, column: int) -> bool:
         """Checks if a specific position is occupied by any player."""
         return any(player.row == row and player.column == column for player in self.players)
 
-    def switch_active_player(self, has_moved: bool):
+    def check_for_treasure(self, row: int, column: int, player: Player):
+        """Check if a player landed on a treasure and prompt capture dialog if so."""
+        for treasure in self.treasures:
+            if treasure.row == row and treasure.column == column:
+                self.attempt_capture_treasure(treasure, player)
+
+    def attempt_capture_treasure(self, treasure: Treasure, player: Player):
+        """Display a dialog asking if the player wants to capture the treasure."""
+        dialog = ctk.CTkToplevel(self)
+        dialog.title("Capture treasure")
+
+        label = ctk.CTkLabel(dialog, text=f"{player.name} found a treasure! Capture it?")
+        label.pack(pady = 0)
+
+        yes_button = ctk.CTkButton(dialog, text="Yes", command = lambda: self.capture_treasure(treasure, dialog))
+        no_button = ctk.CTkButton(dialog, text= "No", command = dialog.destroy)
+
+        yes_button.pack(side="left", padx = 10)
+        no_button.pack(side="right", padx = 10)
+
+    def capture_treasure(self, treasure: Treasure, dialog: ctk.CTkToplevel):
+        """Capture the treasure and remove it from the map."""
+        self.treasures.remove(treasure)
+        treasure.remove() # Remove symbol from the map display
+        dialog.destroy()
+
+    def switch_active_player(self, has_moved: bool = False):
         """Switches to the next player in the list"""
         if not has_moved:
             self.oxygen -= 1
