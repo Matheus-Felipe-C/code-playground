@@ -17,14 +17,14 @@ class Game(ctk.CTkFrame):
         self.possible_moves = [] # List to store valid moves
 
         # Add players
-        self.add_player(symbol= "👾", name = "Player 1", oxygen= self.oxygen, initial_row = 0, initial_column = 0)
-        self.add_player(symbol= "🦄", name= "Player 2", oxygen = self.oxygen, initial_row= 1, initial_column = 1)
+        self.add_player(symbol= "👾", name = "Player 1", initial_row = 0, initial_column = 0)
+        self.add_player(symbol= "🦄", name= "Player 2", initial_row= 1, initial_column = 1)
 
         # Instructions label
         self.instructions_label = ctk.CTkLabel(self, text= "Click to move active player, press 'Tab' to switch players")
         self.instructions_label.grid(row = rows + 1, column=0, columnspan=columns, pady= 10)
 
-        self.bind("<Tab>", self.switch_active_player)
+        self.bind("<Tab>", lambda event: self.switch_active_player(has_moved= False))
 
         self.attempt_move()
 
@@ -79,9 +79,9 @@ class Game(ctk.CTkFrame):
 
             self.frame_matrix.append(row_frames)
 
-    def add_player(self, symbol: str, name: str, oxygen: int, initial_row: int, initial_column: int) -> None:
+    def add_player(self, symbol: str, name: str, initial_row: int, initial_column: int) -> None:
         """Adds a new player to the map"""
-        player = Player(self.frame_matrix, symbol, name, oxygen, initial_row, initial_column)
+        player = Player(self.frame_matrix, symbol, name, initial_row, initial_column)
         self.players.append(player)
 
     def handle_click(self, row: int, column: int) -> None:
@@ -109,15 +109,21 @@ class Game(ctk.CTkFrame):
         
         active_player.move_to(row, column)
         print(f"Moving {active_player.name} to ({row}, {column})")
+
+        self.consume_oxygen(row, column, active_player)
         
-        self.switch_active_player()
+        self.switch_active_player(has_moved = True)
     
     def is_occupied(self, row: int, column: int) -> bool:
         """Checks if a specific position is occupied by any player."""
         return any(player.row == row and player.column == column for player in self.players)
 
-    def switch_active_player(self, event=None):
+    def switch_active_player(self, has_moved: bool):
         """Switches to the next player in the list"""
+        if not has_moved:
+            self.oxygen -= 1
+            print(f"Oxygen consumed: 1. Oxygen remaining: {self.oxygen}")
+
         self.active_player_index = (self.active_player_index + 1) % len(self.players)
         active_player = self.players[self.active_player_index]
         print(f"Active player is now {active_player.name}")
@@ -130,3 +136,10 @@ class Game(ctk.CTkFrame):
         active_player = self.players[self.active_player_index]
         self.show_possible_moves(active_player, dice_roll)
 
+    def consume_oxygen(self, cell_row: int, cell_column: int, active_player: Player) -> None:
+        """Consumes oxygen tanks relative to the weight of the player and amount of cells he travelled."""
+        cells = abs(cell_row - active_player.row) + abs(cell_column - active_player.column)
+
+        consumption = cells * active_player.weight + 1
+        self.oxygen -= consumption
+        print(f"Oxygen consumed: {consumption}. Remaining oxygen: {self.oxygen}")

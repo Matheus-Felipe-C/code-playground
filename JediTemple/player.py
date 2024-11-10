@@ -1,12 +1,12 @@
 import customtkinter as ctk
 
 class Player(ctk.CTk):
-    def __init__(self, matrix, symbol, name, oxygen, initial_row, initial_column, **kwargs):
+    def __init__(self, matrix, symbol, name, initial_row, initial_column, **kwargs):
 
         self.matrix = matrix
         self.symbol = symbol
         self.name = name
-        self.oxygen = oxygen
+        self.weight = 1
         self.row = initial_row
         self.column = initial_column
         self.player_label = ctk.CTkLabel(master=self.matrix[self.row][self.column], text= self.symbol, font=("Arial", 20))
