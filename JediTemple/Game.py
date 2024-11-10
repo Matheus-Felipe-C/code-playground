@@ -1,3 +1,4 @@
+import random
 import customtkinter as ctk
 from player import Player
 
@@ -13,6 +14,7 @@ class Game(ctk.CTkFrame):
         self.players = []
         self.active_player_index = 0 # Tracks which player to play next
         self.oxygen = 15
+        self.possible_moves = [] # List to store valid moves
 
         # Add players
         self.add_player(symbol= "👾", name = "Player 1", oxygen= self.oxygen, initial_row = 0, initial_column = 0)
@@ -24,6 +26,42 @@ class Game(ctk.CTkFrame):
 
         self.bind("<Tab>", self.switch_active_player)
 
+        self.attempt_move()
+
+    def roll_dice(self):
+        """Returns a random number from 0 to 3, which will determine how far a player will go"""
+        return random.randint(0, 3)
+
+    def show_possible_moves(self, player, dice_roll):
+        """Highlight frames within dice_roll range, only in vertical and horizontal directions."""
+        row, column = player.row, player.column
+        self.possible_moves = [] # Resets possible move tuple
+
+        # Collect possible moves (up, down, left, right within the dice roll range)
+        for step in range(1, dice_roll + 1):
+            # Up
+            if row - step >= 0:
+                self.possible_moves.append((row - step, column))
+            # Down
+            if row + step < len(self.frame_matrix):
+                self.possible_moves.append((row + step, column))
+            # Left
+            if column - step >= 0:
+                self.possible_moves.append((row, column - step))
+            # Right
+            if column + step < len(self.frame_matrix[0]):
+                self.possible_moves.append((row, column + step))
+        
+        # Highlight each possible move
+        for r, c in self.possible_moves:
+            self.frame_matrix[r][c].configure(border_color= "blue", border_width= 2)
+
+    def clear_highlights(self):
+        """Clears all highlighted frames by resetting the border."""
+        for row in self.frame_matrix:
+            for frame in row:
+                frame.configure(border_color= "black", border_width = 0)
+
     def create_matrix(self, rows= 15, columns= 15):
         """Creates the map matrix and shows it on the screen"""
         for row in range(rows):
@@ -34,7 +72,7 @@ class Game(ctk.CTkFrame):
                 frame.grid(row= row, column= column, padx= 2, pady= 2)
                 frame.grid_propagate(False)
                 frame.pack_propagate(False)
-                frame.bind("<Button-1>", lambda event, r=row, c= column: self.move_active_player(r, c))
+                frame.bind("<Button-1>", lambda event, r=row, c= column: self.handle_click(r, c))
 
                 # Adds an onclick event to move the active player
                 row_frames.append(frame)
@@ -46,10 +84,19 @@ class Game(ctk.CTkFrame):
         player = Player(self.frame_matrix, symbol, name, oxygen, initial_row, initial_column)
         self.players.append(player)
 
+    def handle_click(self, row: int, column: int) -> None:
+        """Handles click event, moving the player only if the selected cell is a valid move."""
+        if (row, column) in self.possible_moves:
+            self.move_active_player(row, column)
+        else:
+            print(f"cell {row},{column} not in range")
+            
+
     def move_active_player(self, row: int, column: int) -> None:
         """Move active player to designated cell"""
         active_player = self.players[self.active_player_index]
         active_player.move_to(row, column)
+        
         print(f"Moving {active_player.name} to ({row}, {column})")
         
         self.switch_active_player()
@@ -59,8 +106,12 @@ class Game(ctk.CTkFrame):
         self.active_player_index = (self.active_player_index + 1) % len(self.players)
         active_player = self.players[self.active_player_index]
         print(f"Active player is now {active_player.name}")
+        self.clear_highlights() # Clear highlights after moving
+        self.attempt_move()
 
-    def change_frame_color(self, row: int, column: int, color: str) -> None:
-        self.frame_matrix[row][column].configure(fg_color= color)
-
+    def attempt_move(self):
+        """Rolls dice and shows possible moves for the active player."""
+        dice_roll = self.roll_dice()
+        active_player = self.players[self.active_player_index]
+        self.show_possible_moves(active_player, dice_roll)
 
