@@ -123,11 +123,13 @@ class Game(ctk.CTkFrame):
                 # Set new target position to the jump position if unoccupied
                 if not self.is_occupied(new_row, new_column):
                     row, column = new_row, new_column
+            
+        cells_traveled = abs(row - active_player.row) + abs(column - active_player.column)
         
         active_player.move_to(row, column)
         print(f"Moving {active_player.name} to ({row}, {column})")
 
-        self.consume_oxygen(row, column, active_player)
+        self.consume_oxygen(cells_traveled, active_player)
         self.check_for_treasure(row, column, active_player)        
         self.switch_active_player(has_moved = True)
     
@@ -180,11 +182,8 @@ class Game(ctk.CTkFrame):
         active_player = self.players[self.active_player_index]
         self.show_possible_moves(active_player, dice_roll)
 
-    def consume_oxygen(self, cell_row: int, cell_column: int, active_player: Player) -> None:
+    def consume_oxygen(self, cells_traveled: int, active_player: Player) -> None:
         """Consumes oxygen tanks relative to the weight of the player and amount of cells he travelled."""
-        cells = abs(cell_row - active_player.row) + abs(cell_column - active_player.column)
-        print(f"Current player's weight: {active_player.weight}")
-
-        consumption = cells * active_player.weight + 1
+        consumption = cells_traveled * active_player.weight + 1
         self.oxygen -= consumption
         print(f"Oxygen consumed: {consumption}. Remaining oxygen: {self.oxygen}")
