@@ -2,8 +2,7 @@ import math
 import customtkinter as ctk
 
 class Treasure:
-    def __init__(self, frame_matrix, symbol: str, row: int, column: int):
-        self.frame_matrix = frame_matrix
+    def __init__(self, symbol: str, row: int, column: int):
         self.symbol = symbol
         self.row = row
         self.column = column
