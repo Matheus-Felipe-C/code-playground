@@ -1,7 +1,7 @@
 import random
 import customtkinter as ctk
 from player import Player
-from Treasure import Treasure
+from treasure import Treasure
 
 class Game(ctk.CTkFrame):
     def __init__(self, master, rows = 15, columns = 15, **kwargs):

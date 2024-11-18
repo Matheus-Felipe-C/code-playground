@@ -1,5 +1,5 @@
 import customtkinter 
-from Game import Game
+from game import Game
 
 class App(customtkinter.CTk):
     def __init__(self):
