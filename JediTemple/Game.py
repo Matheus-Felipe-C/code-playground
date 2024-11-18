@@ -157,6 +157,7 @@ class Game(ctk.CTkFrame):
 
     def capture_treasure(self, treasure: Treasure, dialog: ctk.CTkToplevel):
         """Capture the treasure and remove it from the map."""
+        self.players[self.active_player_index].increase_weight(treasure.weight)
         self.treasures.remove(treasure)
         treasure.remove() # Remove symbol from the map display
         dialog.destroy()
@@ -182,6 +183,7 @@ class Game(ctk.CTkFrame):
     def consume_oxygen(self, cell_row: int, cell_column: int, active_player: Player) -> None:
         """Consumes oxygen tanks relative to the weight of the player and amount of cells he travelled."""
         cells = abs(cell_row - active_player.row) + abs(cell_column - active_player.column)
+        print(f"Current player's weight: {active_player.weight}")
 
         consumption = cells * active_player.weight + 1
         self.oxygen -= consumption
