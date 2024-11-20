@@ -1,7 +1,8 @@
 import random
 from treasure import Treasure
+import customtkinter as ctk
 
-class TreasureManager:
+class TreasureManager(ctk.CTk):
     def __init__(self, board, difficulty):
         self.board = board
         self.treasures = []
@@ -32,8 +33,32 @@ class TreasureManager:
     def check_for_treasure(self, row, column, player):
         for treasure in self.treasures:
             if treasure.row == row and treasure.column == column:
-                self.capture_treasure(treasure, player)
+                self.prompt_capture_treasure(treasure, player)
             
+    def prompt_capture_treasure(self, treasure, player):
+        """Prompts the player to decide whether to capture the treasure."""
+        dialog = ctk.CTkToplevel(self.board.master)
+        dialog.title("Treasure found!")
+        dialog.geometry("300x150")
+
+        label = ctk.CTkLabel(dialog, text=f"{player.name} found a treasure! Capture it?")
+        label.pack(pady = 10)
+
+        # Yes/no button callbacks
+        def on_yes():
+            self.capture_treasure(treasure, player)
+            dialog.destroy()
+        
+        def on_no():
+            print(f"{player.name} chose not to capture the treasure.")
+            dialog.destroy()
+
+        yes_button = ctk.CTkButton(dialog, text="Yes", command= on_yes)
+        yes_button.pack(side="left", padx = 10)
+
+        no_button = ctk.CTkButton(dialog, text= "No", command= on_no)
+        no_button.pack(side="right", padx = 10)
+
     def capture_treasure(self, treasure, player):
         player.increase_weight(treasure.weight)
         self.treasures.remove(treasure)
