@@ -46,6 +46,11 @@ class TreasureManager(ctk.CTk):
 
         # Yes/no button callbacks
         def on_yes():
+            if player.weight + treasure.weight > player.MAX_WEIGHT:
+                print(f"{player.name} cannot capture the treasure. Exceeds weight limit!")
+                dialog.destroy()
+                return
+
             self.capture_treasure(treasure, player)
             dialog.destroy()
         

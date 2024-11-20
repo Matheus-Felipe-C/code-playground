@@ -1,6 +1,8 @@
 import customtkinter as ctk
 
 class Player(ctk.CTk):
+    MAX_WEIGHT = 15
+    
     def __init__(self, board, symbol, name, initial_row, initial_column, **kwargs):
 
         self.board = board
