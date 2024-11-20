@@ -37,7 +37,7 @@ class TreasureManager:
     def capture_treasure(self, treasure, player):
         player.increase_weight(treasure.weight)
         self.treasures.remove(treasure)
-        treasure.remove_from_board()
+        treasure.remove()
     
     def get_random_position(self):
         """Assigns a random position for the treasure."""
