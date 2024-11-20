@@ -41,7 +41,7 @@ class TreasureManager:
     
     def get_random_position(self):
         """Assigns a random position for the treasure."""
-        row = random.randint(0, self.board.rows - 1)
-        col = random.randint(0, self.board.columns - 1)
+        row = random.randint(1, self.board.rows - 1)
+        col = random.randint(1, self.board.columns - 1)
 
         return row, col

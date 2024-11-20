@@ -19,7 +19,7 @@ class Game(ctk.CTkFrame):
 
         # Add players
         self.player_manager.add_player(symbol= "👾", board= self.board, name = "Player 1", initial_row = 0, initial_column = 0)
-        self.player_manager.add_player(symbol= "🦄", board= self.board, name= "Player 2", initial_row= 1, initial_column = 1)
+        self.player_manager.add_player(symbol= "🦄", board= self.board, name= "Player 2", initial_row= 0, initial_column = 1)
 
         # Add treasures and bombs
         self.treasure_manager.spawn_treasures(self.difficulty)
