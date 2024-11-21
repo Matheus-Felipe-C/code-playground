@@ -8,6 +8,7 @@ class Board(ctk.CTk):
         self.frame_matrix = []
         self.click_callback = click_callback # Callback for handling cell clicks
         self.highlighted_cells = set()
+        self.occupied_cells = set()
 
         self.create_matrix()
     
@@ -52,3 +53,18 @@ class Board(ctk.CTk):
         for row in self.frame_matrix:
             for frame in row:
                 frame.configure(border_color= "black", border_width = 0)
+    
+    def is_occupied(self, row, column):
+        return (row, column) in self.occupied_cells
+    
+    def occupy(self, row, column):
+        self.occupied_cells.add((row, column))
+    
+    def release(self, row, column):
+        self.occupied_cells.discard((row, column))
+    
+    def place_item(self, row, column):
+        if not self.is_occupied(row, column):
+            self.occupy(row, column)
+        else:
+            raise ValueError(f"Cell ({row}, {column}) is already occupied!")

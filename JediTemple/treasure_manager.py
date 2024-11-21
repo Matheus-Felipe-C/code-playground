@@ -22,13 +22,11 @@ class TreasureManager(ctk.CTk):
         
         for _ in range(num_treasures):
             row, column = self.get_random_position()
-            while self.is_position_occupied(row, column):
-                row, column = self.get_random_position()
-            treasure = Treasure(self.board, "💎", row, column)
-            self.treasures.append(treasure)
-        
-    def is_position_occupied(self, row, column):
-        return any(t.row == row and t.column == column for t in self.treasures)
+            
+            if not self.board.is_occupied(row, column):
+                treasure = Treasure(self.board, "💎", row, column)
+                self.treasures.append(treasure)
+                self.board.place_item(row, column)
     
     def check_for_treasure(self, row, column, player):
         for treasure in self.treasures:

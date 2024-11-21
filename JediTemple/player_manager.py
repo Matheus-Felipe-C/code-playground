@@ -90,6 +90,16 @@ class PlayerManager:
             return new_row, new_column  # Successful jump target
         return player.row, player.column  # Return original position if jump fails
     
+    def kill_player(self, player):
+        """Removes a player from the game."""
+        self.players.remove(player)
+        print(f"{player.name} has been removed from the game.")
+        
+        if not self.players:
+            print("All players are dead! Game Over.")
+        else:
+            self.switch_to_next_player()
+
     def get_active_player(self):
         return self.players[self.active_player_index]
     
