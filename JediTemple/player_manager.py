@@ -41,7 +41,6 @@ class PlayerManager:
         cells_traveled = abs(player.row - row) + abs(player.column - column)
         player.move_to(row, column)
         self.consume_oxygen(cells_traveled)
-        self.switch_to_next_player()
 
     def is_occupied(self, row: int, column: int) -> bool:
         """Checks if a specific position is occupied by any player."""
@@ -94,6 +93,7 @@ class PlayerManager:
         """Removes a player from the game."""
         self.players.remove(player)
         print(f"{player.name} has been removed from the game.")
+        player.remove()
         
         if not self.players:
             print("All players are dead! Game Over.")

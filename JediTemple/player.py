@@ -34,3 +34,6 @@ class Player(ctk.CTk):
         """Increases the weight of the player"""
         self.weight += new_weight
         print(f"Player's new weight: {self.weight}")
+    
+    def remove(self):
+        self.player_label.pack_forget()

@@ -13,4 +13,4 @@ class Bomb(ctk.CTk):
     
     def remove(self):
         """Removes the bomb from the board."""
-        self.board.frame_matrix[self.row][self.column].configure(text='')
+        self.label.pack_forget()

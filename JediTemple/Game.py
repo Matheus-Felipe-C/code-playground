@@ -46,6 +46,7 @@ class Game(ctk.CTkFrame):
         self.player_manager.move_player(row, column)
         self.bomb_manager.check_for_bomb(row, column, self.player_manager)
         self.treasure_manager.check_for_treasure(row, column, self.player_manager.get_active_player())
+        self.player_manager.switch_to_next_player()
 
     def roll_dice(self):
         """Rolls the dice to determine how many steps a player can move"""
